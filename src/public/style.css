@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap");
+:root {
+  --bgc: #16161d;
+  --fontColorBase: #fff;
+  --fontfamily: "Yanone Kaffeesatz", sans-serif;
+  --fontWeightLogo: 700;
+  --fontWeightHeader: 400;
+  --fontWeightNorm: 200;
+  --fontSizeLogo: 72;
+  --fontSizeHeader: 56;
+  --fontSizeNorm: 22;
+}
+html,
+body {
+  margin: 0;
+  background-color: var(--bgc);
+}
+.test {
+  border: solid 1px red;
+}
+.main-margin {
+  margin: 0 5vw 0 5vw;
+}
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.header-container {
+  height: 15vh;
+  width: 100%;
+}
+.header {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.header-logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+  color: var(--fontColorBase);
+  font-family: var(--fontfamily);
+  font-weight: var(--fontWeightHeader);
+  font-size: var(--fontSizeLogo);
+}
+.header-search {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.header-search-input {
+  width: 40vw;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header-search-input input[type="text"] {
+  padding: 6px;
+  border: none;
+  font-size: var(--fontSizeNorm);
+  font-family: var(--fontfamily);
+  width: 60%;
+  height: 7vh;
+}
+.header-search-btn {
+  width: 5vw;
+  height: 100%;
+  margin-left: 1vw;
+}
+.header-search-btn-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-container {
+  height: 80vh;
+  width: 100%;
+}
