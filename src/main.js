@@ -21,7 +21,7 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views/templates"));
 hbs.registerPartials(path.join(__dirname, "views/partials"));
 
-// setting up weather Routes
+// weather routes
 app.use(weatherRoutes);
 
 // base url
