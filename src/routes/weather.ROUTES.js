@@ -2,10 +2,10 @@ const router = require("express").Router();
 const prefix = `/getweather`;
 const __weatherServices = require("../utils/weather.SERVICES");
 
-router.get(`${prefix}/search`, (req, res) => {
+router.post(`${prefix}/search`, async (req, res) => {
   __weatherServices.doFetchWeather(req.body.place, (data, err) => {
     if (err) {
-      res.status(400).send(err);
+      res.status(400).send(err.data);
       return;
     }
 
