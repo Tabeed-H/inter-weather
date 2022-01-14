@@ -1,21 +1,22 @@
 const searchLocation = document.querySelector(".search-btn");
 const searchLocationAuto = document.querySelector(".location-btn");
 
+// geolocation api to get the current location of the user
+function getGeoLocation() {
+  navigator.geolocation.getCurrentPosition(parseCoords);
+}
+// triggers function to get Coordinates of the present location
 searchLocationAuto.addEventListener("click", (e) => {
   e.preventDefault();
   getGeoLocation();
 });
 
+// sends the data from the text box to the getWeather function
 searchLocation.addEventListener("click", (e) => {
   e.preventDefault();
   const location = document.querySelector(".input-text").value;
   getWeather(location);
 });
-
-// geolocation api to get the current location of the user
-function getGeoLocation() {
-  navigator.geolocation.getCurrentPosition(parseCoords);
-}
 
 // to parse coordinates to a string used by getWeather as a string
 const parseCoords = function ({ coords }) {
@@ -37,11 +38,13 @@ const getWeather = function (data) {
       setCurrentTemp(res.data);
       setForecast(res.data.forecast);
     })
-    .catch((err) => console.log(err.response));
+    .catch((err) => {
+      if (data.data) window.alert(err.response.data.data.error[0].msg);
+      else window.alert(err.response.data);
+    });
 };
 
 const setCurrentTemp = function (data) {
-  console.log(data);
   document.querySelector(".current-weather-container").innerHTML = "";
   const htmlDOM = `  <div class="current-weather-temp">
                         <div class="current-weather-temp-img">
@@ -61,7 +64,6 @@ const setCurrentTemp = function (data) {
 };
 
 const setForecast = function (data) {
-  console.log(data);
   document.querySelector(".forecast-card-container").innerHTML = "";
 
   data.forEach((element) => {

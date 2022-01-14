@@ -8,12 +8,15 @@ router.post(`${prefix}/search`, async (req, res) => {
       res.status(400).send(err.data);
       return;
     }
+    if (!data) {
+      res
+        .status(400)
+        .send(
+          "Something Went Wrong!\nPlease Try Again Later\nTry:\n1. Check if the enter location is valid\n2. Check your internet Connection"
+        );
+      return;
+    }
 
-    // const weatherData = {
-    //   location: data.location,
-    //   current: data.current,
-    //   forecast: data.forecast,
-    // };
     const weatherData = {
       location: data.data.request,
       current: data.data.current_condition,
