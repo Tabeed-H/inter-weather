@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "env-cmd -f ./config/development.env nodemon ./src/main.js"
+    "dev": "env-cmd -f ./config/development.env nodemon ./src/main.js",
+    "dev2": "env-cmd -f ./config/secondaryAPI.env nodemon ./src/main.js"
   },
   "repository": {
     "type": "git",

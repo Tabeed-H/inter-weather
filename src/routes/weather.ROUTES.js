@@ -9,11 +9,20 @@ router.post(`${prefix}/search`, async (req, res) => {
       return;
     }
 
+    // const weatherData = {
+    //   location: data.location,
+    //   current: data.current,
+    //   forecast: data.forecast,
+    // };
     const weatherData = {
-      location: data.location,
-      current: data.current,
-      forecast: data.forecast,
+      location: data.data.request,
+      current: data.data.current_condition,
+      forecast: data.data.weather,
     };
+    weatherData.forecast.forEach((ele) => {
+      delete ele.hourly;
+      delete ele.astronomy;
+    });
     res.status(200).send(weatherData);
   });
 });

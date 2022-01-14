@@ -43,15 +43,19 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 30%;
+  width: 50%;
   height: 100%;
   color: var(--fontColorBase);
   font-family: var(--fontfamily);
   font-weight: var(--fontWeightHeader);
   font-size: var(--fontSizeLogo);
 }
+.currtempm {
+  font-size: 20px;
+  margin-left: 2vw;
+}
 .header-search {
-  width: 70%;
+  width: 50%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -198,8 +202,22 @@ body {
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
 }
-.forecast-card > div {
-  color: var(--fontColorBase);
+.forecast-card-date {
   font-family: var(--fontfamily);
-  font-size: var(--fontSizeNorm);
+  font-size: 18px;
+  color: var(--fontColorBase);
+}
+.forecast-card-img {
+  font-family: var(--fontfamily);
+  font-size: 42px;
+  color: var(--fontColorBase);
+}
+.forecast-card-weather {
+  font-family: var(--fontfamily);
+  font-size: 18px;
+  color: var(--fontColorBase);
+}
+.degree {
+  font-size: 12px;
+  vertical-align: super;
 }
