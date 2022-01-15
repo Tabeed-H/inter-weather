@@ -3,7 +3,12 @@ const searchLocationAuto = document.querySelector(".location-btn");
 
 // geolocation api to get the current location of the user
 function getGeoLocation() {
-  navigator.geolocation.getCurrentPosition(parseCoords);
+  // navigator.geolocation.getCurrentPosition(parseCoords);
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(parseCoords, parseError);
+  } else {
+    window.alert("GeoLocation Is not Supported By Browser!");
+  }
 }
 // triggers function to get Coordinates of the present location
 searchLocationAuto.addEventListener("click", (e) => {
@@ -21,6 +26,22 @@ searchLocation.addEventListener("click", (e) => {
 // to parse coordinates to a string used by getWeather as a string
 const parseCoords = function ({ coords }) {
   getWeather(`${coords.latitude},${coords.longitude}`);
+};
+const parseError = function (error) {
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      window.alert("User denied the request for Geolocation.!");
+      break;
+    case error.POSITION_UNAVAILABLE:
+      window.alert("Location information is unavailable.!");
+      break;
+    case error.TIMEOUT:
+      window.alert("The request to get user location timed out.!");
+      break;
+    case error.UNKNOWN_ERROR:
+      window.alert("An unknown error occurred.!");
+      break;
+  }
 };
 
 // makes the api call
